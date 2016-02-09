@@ -11,7 +11,8 @@ android:versionName="1.0" >
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="com.microsoft.band.service.access.BIND_BAND_SERVICE" />
 <uses-permission android:name="android.permission.INTERNET" />
-
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
 <application
     android:allowBackup="true"
@@ -24,23 +25,19 @@ android:versionName="1.0" >
         android:label="@string/app_name" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
-
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
 
     <receiver
-        android:name=".TileEventReceiver"
+        android:name="com.beth.smartthings_msband.TileEventReceiver"
         android:label="@string/app_name"
         android:enabled="true"
         android:exported="true">
         <intent-filter>
-            <action
-                android:name="com.microsoft.band.action.ACTION_TILE_OPENED" />
-            <action
-                android:name="com.microsoft.band.action.ACTION_TILE_BUTTON_PRESSED" />
-            <action
-                android:name="com.microsoft.band.action.ACTION_TILE_CLOSED" />
+            <action android:name="com.microsoft.band.action.ACTION_TILE_OPENED"/>
+            <action android:name="com.microsoft.band.action.ACTION_TILE_BUTTON_PRESSED"/>
+            <action android:name="com.microsoft.band.action.ACTION_TILE_CLOSED"/>
         </intent-filter>
     </receiver>
 </application>

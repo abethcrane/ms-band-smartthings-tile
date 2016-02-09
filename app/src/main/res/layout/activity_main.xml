@@ -17,6 +17,13 @@
         android:text="@string/start" />
 
     <Button
+        android:id="@+id/btnReinstall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reinstall" />
+
+
+    <Button
         android:id="@+id/btnSmartThings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

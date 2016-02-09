@@ -12,6 +12,7 @@
         4. If the band is full, go to Microsoft Health to remove one tile, then repeat step 3\n
         5. If it has not already been added, a new tile should be placed on your band\n
         6. Enter the tile and test the buttons\n</string>
-    <string name="start">Start</string>
+    <string name="start">Oauth / Pull down info</string>
     <string name="SmartThings">Authorize with SmartThings</string>
+    <string name="reinstall">Delete tile and reinstall</string>
 </resources>
