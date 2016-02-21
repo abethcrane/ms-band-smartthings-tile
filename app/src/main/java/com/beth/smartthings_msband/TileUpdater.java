@@ -7,7 +7,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.microsoft.band.BandClient;
+import com.microsoft.band.BandException;
 import com.microsoft.band.BandIOException;
+import com.microsoft.band.BandPendingResult;
 import com.microsoft.band.tiles.pages.PageData;
 import com.microsoft.band.tiles.pages.TextBlockData;
 import com.microsoft.band.tiles.pages.TextButtonData;
@@ -38,29 +40,30 @@ public class TileUpdater {
     }
 
     private void updatePage(UUID pageUuid, String name, String value, int hoverColor) throws BandIOException {
-        Toast.makeText(context, "updating page: " + name + " to be " + value, Toast.LENGTH_SHORT).show();
         Log.e("update page", name + " to be " + value);
-        PageData page;
 
         // We always make a new page data because we can't update the existing elements
-        page = new PageData(pageUuid, 0);
-
+        PageData page = new PageData(pageUuid, 0);
         page
             .update(new TextBlockData(1, name))
             .update(new TextBlockData(2, value))
             .update(new TextButtonData(3, "On"))
             .update(new TextButtonData(4, "Off"));
 
+        // Currently updating existing page uuids isn't working, I keep getting BandIOExceptions
+        // Except it's not throwing them properly?? Anyway, break in and you see it
         client.getTileManager().setPages(tileId, page);
     }
 
     public void updatePages(JSONArray switchesArray) {
         int numSwitches = switchesArray.length();
         for (int i = 0; i < numSwitches; i++) {
+            String name = null;
+            String value = null;
             try {
                 JSONObject switchElement = switchesArray.getJSONObject(i);
-                String name = (String) switchElement.get("name");
-                String value = (String) switchElement.get("value");
+                name = (String) switchElement.get("name");
+                value = (String) switchElement.get("value");
                 value += ".";
 
                 UUID pageUuid = null;
@@ -76,7 +79,7 @@ public class TileUpdater {
                 }
                 updatePage(pageUuid, name, value.toUpperCase(), Color.BLACK);
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e("update page", e.toString());
             }
         }
     }

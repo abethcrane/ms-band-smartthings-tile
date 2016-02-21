@@ -32,17 +32,13 @@ import java.util.UUID;
 public class TileInstaller extends Activity {
 
     private BandClient client = null;
-    private Button btnStart;
-    private Button btnReinstall;
     private TextView txtStatus;
 
     private static final String clientID = "a9013b57-e3e2-42e5-a8df-00455dbff18e";
     private static final String clientSecret = "aa11e637-bcc7-4f14-a98e-7eef30e1bfe1";
 
     private static final UUID tileId = UUID.fromString("cc0D508F-70A3-47D4-BBA3-812BADB1F8Aa");
-    private static final UUID pageId1 = UUID.fromString("b1234567-89ab-cdef-0123-456789abcd00");
-        private static int maxPages = 8;
-    private static String FILENAME = "smartthings_msband_pagenamehashes";
+    private static int maxPages = 8;
 
     private TileUpdater tileUpdater;
 
@@ -53,7 +49,7 @@ public class TileInstaller extends Activity {
 
         txtStatus = (TextView) findViewById(R.id.txtStatus);
 
-        btnStart = (Button) findViewById(R.id.btnStart);
+        Button btnStart = (Button) findViewById(R.id.btnStart);
         btnStart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +107,7 @@ public class TileInstaller extends Activity {
             }
         });
 
-        btnReinstall = (Button) findViewById(R.id.btnReinstall);
+        Button btnReinstall = (Button) findViewById(R.id.btnReinstall);
 
         btnReinstall.setOnClickListener(new OnClickListener() {
             @Override
@@ -138,9 +134,7 @@ public class TileInstaller extends Activity {
         if (client != null) {
             try {
                 client.disconnect().await();
-            } catch (InterruptedException e) {
-                // Do nothing as this is happening during destroy
-            } catch (BandException e) {
+            } catch (Exception e) {
                 // Do nothing as this is happening during destroy
             }
         }
@@ -156,7 +150,6 @@ public class TileInstaller extends Activity {
                     tileUpdater = new TileUpdater(client, getBaseContext());
                     appendToUI("Band is connected.\n");
                     // Create the file in case it doesn't already exist
-                    String outputString = "Hello world!";
                     File myDir = getFilesDir();
                     File f = new File(myDir+"/pageUuidMap/", "smartthings_msband_pagenamehashes");
                     if (f.getParentFile().mkdirs()) {
@@ -209,7 +202,7 @@ public class TileInstaller extends Activity {
     }
 
     private void HandleBandException(BandException e) {
-        String exceptionMessage = "";
+        String exceptionMessage;
         switch (e.getErrorType()) {
             case DEVICE_ERROR:
                 exceptionMessage = "Please make sure bluetooth is on and the band is in range.\n";

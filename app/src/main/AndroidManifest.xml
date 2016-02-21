@@ -40,6 +40,9 @@ android:versionName="1.0" >
             <action android:name="com.microsoft.band.action.ACTION_TILE_CLOSED"/>
         </intent-filter>
     </receiver>
+    <service
+        android:name=".UpdateUIIntent"
+        android:exported="false"/>
 </application>
 
 </manifest>
