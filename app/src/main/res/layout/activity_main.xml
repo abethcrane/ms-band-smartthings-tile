@@ -22,13 +22,6 @@
         android:layout_height="wrap_content"
         android:text="@string/reinstall" />
 
-
-    <Button
-        android:id="@+id/btnSmartThings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/SmartThings" />
-
    <ScrollView
         android:id="@+id/svTest"
         android:layout_width="match_parent"

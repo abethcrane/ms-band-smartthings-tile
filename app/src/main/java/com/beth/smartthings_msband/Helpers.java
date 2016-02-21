@@ -27,9 +27,8 @@ import java.util.UUID;
  * Created by beth on 1/13/16.
  */
 public class Helpers {
-    // hardcoded for now because lol
-    private static final String authCode = "Bearer b0fe3e21-d0b0-4a9d-a64c-c15715878203";
-    private static final String baseUrl = "https://graph.api.smartthings.com/api/smartapps/installations/f51d420e-c732-45a2-abf9-414763075a64/";
+    private static final String authCode = "Bearer <smartthings api token>";
+    private static final String baseUrl = "https://graph.api.smartthings.com/api/smartapps/installations/<smartthings api endpoint>/";
 
     private static Map<UUID, String> uuidsToNames = null;
 
@@ -148,10 +147,9 @@ public class Helpers {
     }
 
     private static void ensureMapIsUpToDate() {
-        // TODO: fix this
-        //if (uuidsToNames == null) {
+        if (uuidsToNames == null) {
             uuidsToNames = readPageNameHashesFromFile();
-        //}
+        }
     }
 
     private static void updateMapFile() {
@@ -161,7 +159,7 @@ public class Helpers {
     }
 
     public static void putValueMap (UUID key, String value) {
-        Log.e("putValueMap", value);
+        Log.e("Put value map", value);
         ensureMapIsUpToDate();
         uuidsToNames.put(key, value);
         updateMapFile();

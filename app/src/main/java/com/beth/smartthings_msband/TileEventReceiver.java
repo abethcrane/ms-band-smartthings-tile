@@ -5,11 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telecom.Call;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.microsoft.band.BandClient;
 import com.microsoft.band.tiles.TileButtonEvent;
 
 import java.util.UUID;
@@ -38,8 +34,7 @@ public class TileEventReceiver extends BroadcastReceiver {
                     value = "off";
                 }
 
-                Toast.makeText(context, switchName + " turned " + value + "!", Toast.LENGTH_SHORT).show();
-
+                // We can't access the band from a broadcast receiver, so we create an intent to do that
                 Intent updateUiIntent = new Intent(context, UpdateUIIntent.class);
                 updateUiIntent.putExtra("encodedSwitchName", Uri.encode(switchName));
                 updateUiIntent.putExtra("value", value);
@@ -47,7 +42,4 @@ public class TileEventReceiver extends BroadcastReceiver {
             }
         }
     }
-
-
-
 }

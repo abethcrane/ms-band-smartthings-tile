@@ -21,7 +21,6 @@ import com.microsoft.band.tiles.pages.TextBlock;
 import com.microsoft.band.tiles.pages.TextBlockFont;
 import com.microsoft.band.tiles.pages.TextButton;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
@@ -34,11 +33,7 @@ public class TileInstaller extends Activity {
     private BandClient client = null;
     private TextView txtStatus;
 
-    private static final String clientID = "a9013b57-e3e2-42e5-a8df-00455dbff18e";
-    private static final String clientSecret = "aa11e637-bcc7-4f14-a98e-7eef30e1bfe1";
-
     private static final UUID tileId = UUID.fromString("cc0D508F-70A3-47D4-BBA3-812BADB1F8Aa");
-    private static int maxPages = 8;
 
     private TileUpdater tileUpdater;
 
@@ -53,57 +48,8 @@ public class TileInstaller extends Activity {
         btnStart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtStatus.setText("Establishing connection / first time info pull down\n\n");
-                new InitializeApp().execute();
-                /*
-                // oauth. unicorn tears.
-                try {
-                    final AuthorizationCodeFlow flow = new AuthorizationCodeFlow.Builder(
-                        BearerToken.authorizationHeaderAccessMethod(),
-                        new NetHttpTransport(), new JacksonFactory(),
-                        new GenericUrl("https://graph.api.smartthings.com/oauth/token"),
-                        new BasicAuthentication(clientID, clientSecret),
-                        clientID,
-                        "https://graph.api.smartthings.com/oauth/token") //authorize to get the authcode, token to use the code
-                        /*.setCredentialDataStore(
-                            StoredCredential.getDefaultDataStore(
-                                new FileDataStoreFactory(
-                                    new File("datastoredir")
-                                )
-                            )
-                        .build();
-                    /*
-                    String authorizationUrl = flow.newAuthorizationUrl()
-                            .setRedirectUri("https://bethcrane.com/foo")
-                            .setScopes(new ArrayList<>(Arrays.asList("app")))
-                            .build();
-
-                    final String authorizationCode = "AKoplE"; // we cheated
-                    Thread t = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                TokenResponse tokenResponse = flow.newTokenRequest(authorizationCode)
-                                        .setScopes(new ArrayList<>(Arrays.asList("app")))
-                                        .setRedirectUri("https://bethcrane.com/bar")
-                                        .execute();
-
-                                return;
-                            } catch (Exception e) {
-                                return;
-                            }
-                        }
-                    });
-                    t.start();
-
-                    return;
-
-                } catch (Exception e) {
-                 // throw e;
-                    Log.e("error creating authURL",e.getMessage());
-                    appendToUI("error creating authURL"+e.getMessage());
-                    return;
-                }*/
+                txtStatus.setText("Establishing connection / force sync with smartthings\n\n");
+                new InitializeApp(false /*do not delete tile*/).execute();
             }
         });
 
@@ -114,7 +60,7 @@ public class TileInstaller extends Activity {
             public void onClick(View v) {
             txtStatus.setText("Deleting / reinstalling tile\n\n");
 
-            new InitializeAppDeleteTile().execute();
+            new InitializeApp(true /*delete tile*/).execute();
             }
         });
     }
@@ -142,35 +88,14 @@ public class TileInstaller extends Activity {
     }
 
     private class InitializeApp extends AsyncTask<Void, Void, String> {
-        @Override
-        protected String doInBackground(Void... params) {
-            try {
-                client = Helpers.connectBandClient(getBaseContext());
-                if (Helpers.hasConnectedBandClient(client, getBaseContext())) {
-                    tileUpdater = new TileUpdater(client, getBaseContext());
-                    appendToUI("Band is connected.\n");
-                    // Create the file in case it doesn't already exist
-                    File myDir = getFilesDir();
-                    File f = new File(myDir+"/pageUuidMap/", "smartthings_msband_pagenamehashes");
-                    if (f.getParentFile().mkdirs()) {
-                        f.createNewFile();
-                    }
-                    // Add if it doesn't exist
-                    addTile();
-                    tileUpdater.resetPages();
-                } else {
-                    appendToUI("Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
-                }
-            } catch (BandException e) {
-                HandleBandException(e);
-            } catch (Exception e) {
-                appendToUI(e.getMessage());
-            }
-            return null;
-        }
-    }
 
-    private class InitializeAppDeleteTile extends AsyncTask<Void, Void, String> {
+        boolean deleteTile;
+
+        public InitializeApp(boolean deleteTile) {
+            super();
+            this.deleteTile = deleteTile;
+        }
+
         @Override
         protected String doInBackground(Void... params) {
             try {
@@ -178,15 +103,20 @@ public class TileInstaller extends Activity {
                 if (Helpers.hasConnectedBandClient(client, getBaseContext())) {
                     tileUpdater = new TileUpdater(client, getBaseContext());
                     appendToUI("Band is connected.\n");
+
                     // Create the file in case it doesn't already exist
                     FileOutputStream fos = openFileOutput("smartthings_msband_pagenamehashes", Context.MODE_APPEND);
                     fos.close();
                     List<BandTile> tiles = client.getTileManager().getTiles().await();
-                    for(BandTile t : tiles) {
-                        if(client.getTileManager().removeTile(t).await()){
-                            appendToUI("Just removed an old tile\n");
+
+                    if (deleteTile) {
+                        for (BandTile t : tiles) {
+                            if (client.getTileManager().removeTile(t).await()) {
+                                appendToUI("Just removed an old tile\n");
+                            }
                         }
                     }
+
                     addTile();
                     tileUpdater.resetPages();
                 } else {
