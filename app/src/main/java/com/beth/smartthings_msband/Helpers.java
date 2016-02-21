@@ -99,9 +99,6 @@ public class Helpers {
     }
 
     private static Map<UUID, String> readPageNameHashesFromFile() {
-
-        Log.e("read hashes from file", "printing before");
-        printMap();
         Map<UUID, String> map = new HashMap<UUID, String>();
 
         try {
@@ -109,27 +106,22 @@ public class Helpers {
             ObjectInputStream ois = new ObjectInputStream(fis);
             map = (Map<UUID, String>) ois.readObject();
             ois.close();
-            Log.e("read hashes from file", "printing after");
             printMap();
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("read hashes from file - exception", e.toString());
+            Log.e("Read from file", e.toString());
         }
 
         return map;
     }
 
     private static void writePageNameHashesToFile(Map<UUID, String> map) {
-        Log.e("Helpers", "writePageNameHashesToFile");
         if (uuidsToNames != null) {
             String mapString = "Map: ";
             for (Map.Entry<UUID, String> entry : uuidsToNames.entrySet()) {
                 mapString += entry.toString();
                 mapString += "\n";
             }
-            Log.e("Helpers", mapString);
-        } else {
-            Log.e("Helpers", "Map is null :(");
         }
 
         if (map == null) { // TODO: Do I need this?
@@ -142,7 +134,7 @@ public class Helpers {
             oos.writeObject(map);
             oos.close();
         } catch (Exception e) {
-            //e.printStackTrace();
+            Log.e("Write to file", e.toString());
         }
     }
 
@@ -153,13 +145,10 @@ public class Helpers {
     }
 
     private static void updateMapFile() {
-        Log.e("Update map file", "updating");
-        printMap();
         writePageNameHashesToFile(uuidsToNames);
     }
 
     public static void putValueMap (UUID key, String value) {
-        Log.e("Put value map", value);
         ensureMapIsUpToDate();
         uuidsToNames.put(key, value);
         updateMapFile();
@@ -167,8 +156,6 @@ public class Helpers {
 
     public static UUID getKeyByValueMap (String value) {
         ensureMapIsUpToDate();
-        Log.e("Get key by value map", value);
-        printMap();
         UUID key = null;
         for (Map.Entry<UUID, String> entry : uuidsToNames.entrySet()) {
             if (entry.getValue().equals(value)) {
@@ -191,8 +178,6 @@ public class Helpers {
 
     public static boolean containsKeyMap(UUID key) {
         ensureMapIsUpToDate();
-        Log.e("Contains key map", key.toString());
-        printMap();
         return uuidsToNames.containsKey(key);
     }
 
@@ -212,9 +197,9 @@ public class Helpers {
                 mapString += entry.toString();
                 mapString += "\n";
             }
-            Log.e("Helpers - printMap", mapString);
+            Log.e("Helpers: Map", mapString);
         } else {
-            Log.e("Helpers", "Map is null :(");
+            Log.e("Helpers: Map", "Map is null :(");
         }
 
     }
