@@ -180,17 +180,17 @@ public class TileInstaller extends Activity {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = false;
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        Bitmap tileIcon = BitmapFactory.decodeResource(getBaseContext().getResources(), R.raw.b_icon, options);
+        Bitmap tileIcon = BitmapFactory.decodeResource(getBaseContext().getResources(), R.raw.lightbulb_icon_white, options);
 
-        BandTile tile = new BandTile.Builder(tileId, "Button Tile", tileIcon)
+        BandTile tile = new BandTile.Builder(tileId, "SmartThings Tile", tileIcon)
                 .setPageLayouts(createButtonLayout())
                 .build();
-        appendToUI("Button Tile is adding ...\n");
+        appendToUI("SmartThings Tile is adding ...\n");
         if (client.getTileManager().addTile(this, tile).await()) {
-            appendToUI("Button Tile is added.\n");
+            appendToUI("SmartThings Tile is added.\n");
             return true;
         } else {
-            appendToUI("Unable to add button tile to the band.\n");
+            appendToUI("Unable to add SmartThings Tile to the band.\n");
             return false;
         }
     }
