@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Band Tile Event App</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Microsoft Band SmartThings Tile</string>
 
     <string name="steps">Steps to use this app:\n
-        0. Create a smartthings app at graph.api.smartthings.com using the code in the smartthings folder
-        1. Insert the api token and endpoint from the app into Helpers.java
-        2. Rebuild/install the app
+        0. Create a smartthings app at graph.api.smartthings.com using the code in the smartthings folder\n
+        1. Insert the api token and endpoint from the app into Helpers.java\n
+        2. Rebuild/install the app\n
         3. Pair your band with the phone\n
         4. Make sure Microsoft Health is installed\n
         5. Press the Start button\n
         6. If the band is full, go to Microsoft Health to remove one tile, then repeat step 3\n
         7. If it has not already been added, a new tile should be placed on your band\n
         8. Enjoy turning switches on/off from your band!\n</string>
-    <string name="start">Force sync with smartthings</string>
+    <string name="start">Update tile/sync data</string>
     <string name="reinstall">Delete tile and reinstall</string>
 </resources>
