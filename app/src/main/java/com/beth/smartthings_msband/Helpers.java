@@ -27,7 +27,9 @@ import java.util.UUID;
  * Created by beth on 1/13/16.
  */
 public class Helpers {
+    // The "Bearer " is important. See http://docs.smartthings.com/en/latest/smartapp-web-services-developers-guide/authorization.html
     private static final String authCode = "Bearer <smartthings api token>";
+    // The final "/" is important. Make sure this is left there.
     private static final String baseUrl = "https://graph.api.smartthings.com/api/smartapps/installations/<smartthings api endpoint>/";
 
     private static Map<UUID, String> uuidsToNames = null;
