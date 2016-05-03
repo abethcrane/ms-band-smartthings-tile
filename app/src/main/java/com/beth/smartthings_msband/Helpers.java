@@ -10,6 +10,7 @@ import com.microsoft.band.BandInfo;
 import com.microsoft.band.ConnectionState;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,6 +34,7 @@ public class Helpers {
     private static final String baseUrl = "https://graph.api.smartthings.com/api/smartapps/installations/<smartthings api endpoint>/";
 
     private static Map<UUID, String> uuidsToNames = null;
+    private static String fileName = "smartthings_msband_pagenamehashes";
 
     public static BandClient connectBandClient(Context context) {
         BandInfo[] devices = BandClientManager.getInstance().getPairedBands();
@@ -100,11 +102,11 @@ public class Helpers {
         return response.toString();
     }
 
-    private static Map<UUID, String> readPageNameHashesFromFile() {
+    private static Map<UUID, String> readPageNameHashesFromFile(File folder) {
         Map<UUID, String> map = new HashMap<UUID, String>();
 
         try {
-            FileInputStream fis = new FileInputStream("/data/user/0/com.beth.smartthings_msband/files/pageUuidMap/smartthings_msband_pagenamehashes");
+            FileInputStream fis = new FileInputStream(folder.getAbsolutePath() +  fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
             map = (Map<UUID, String>) ois.readObject();
             ois.close();
@@ -117,7 +119,7 @@ public class Helpers {
         return map;
     }
 
-    private static void writePageNameHashesToFile(Map<UUID, String> map) {
+    private static void writePageNameHashesToFile(Map<UUID, String> map, File folder) {
         if (uuidsToNames != null) {
             String mapString = "Map: ";
             for (Map.Entry<UUID, String> entry : uuidsToNames.entrySet()) {
@@ -131,7 +133,7 @@ public class Helpers {
         }
 
         try {
-            FileOutputStream fos = new FileOutputStream("/data/user/0/com.beth.smartthings_msband/files/pageUuidMap/smartthings_msband_pagenamehashes");
+            FileOutputStream fos = new FileOutputStream(folder.getAbsolutePath() +  fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(map);
             oos.close();
@@ -140,24 +142,24 @@ public class Helpers {
         }
     }
 
-    private static void ensureMapIsUpToDate() {
+    private static void ensureMapIsUpToDate(File folder) {
         if (uuidsToNames == null) {
-            uuidsToNames = readPageNameHashesFromFile();
+            uuidsToNames = readPageNameHashesFromFile(folder);
         }
     }
 
-    private static void updateMapFile() {
-        writePageNameHashesToFile(uuidsToNames);
+    private static void updateMapFile(File folder) {
+        writePageNameHashesToFile(uuidsToNames, folder);
     }
 
-    public static void putValueMap (UUID key, String value) {
-        ensureMapIsUpToDate();
+    public static void putValueMap (UUID key, String value, File folder) {
+        ensureMapIsUpToDate(folder);
         uuidsToNames.put(key, value);
-        updateMapFile();
+        updateMapFile(folder);
     }
 
-    public static UUID getKeyByValueMap (String value) {
-        ensureMapIsUpToDate();
+    public static UUID getKeyByValueMap (String value, File folder) {
+        ensureMapIsUpToDate(folder);
         UUID key = null;
         for (Map.Entry<UUID, String> entry : uuidsToNames.entrySet()) {
             if (entry.getValue().equals(value)) {
@@ -168,28 +170,28 @@ public class Helpers {
         return key;
     }
 
-    public static String getValueByKeyMap (UUID key) {
-        ensureMapIsUpToDate();
+    public static String getValueByKeyMap (UUID key, File folder) {
+        ensureMapIsUpToDate(folder);
         return uuidsToNames.get(key);
     }
 
-    public static boolean containsValueMap (String value) {
-        ensureMapIsUpToDate();
+    public static boolean containsValueMap (String value, File folder) {
+        ensureMapIsUpToDate(folder);
         return uuidsToNames.containsValue(value);
     }
 
-    public static boolean containsKeyMap(UUID key) {
-        ensureMapIsUpToDate();
+    public static boolean containsKeyMap(UUID key, File folder) {
+        ensureMapIsUpToDate(folder);
         return uuidsToNames.containsKey(key);
     }
 
-    public static void clearMap() {
+    public static void clearMap(File folder) {
         if (uuidsToNames != null) {
             uuidsToNames.clear();
         }
 
         uuidsToNames = new HashMap<UUID, String>();
-        writePageNameHashesToFile(uuidsToNames);
+        writePageNameHashesToFile(uuidsToNames, folder);
     }
 
     public static void printMap() {

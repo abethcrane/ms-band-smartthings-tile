@@ -17,6 +17,7 @@ import com.microsoft.band.tiles.pages.TextButtonData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.UUID;
 
 /**
@@ -35,7 +36,8 @@ public class TileUpdater {
 
     public void resetPages() throws BandIOException {
         client.getTileManager().removePages(tileId);
-        Helpers.clearMap();
+        File folder = context.getExternalFilesDir(null);
+        Helpers.clearMap(folder);
         updateSwitchesUI();
     }
 
@@ -56,6 +58,8 @@ public class TileUpdater {
     }
 
     public void updatePages(JSONArray switchesArray) {
+        File folder = context.getExternalFilesDir(null);
+
         int numSwitches = switchesArray.length();
         for (int i = 0; i < numSwitches; i++) {
             String name = null;
@@ -69,13 +73,13 @@ public class TileUpdater {
                 UUID pageUuid = null;
 
                 // If we've seen this switch before just update its page, no need to recreate it
-                if (Helpers.containsValueMap(name)) {
-                    pageUuid = Helpers.getKeyByValueMap(name);
+                if (Helpers.containsValueMap(name, folder)) {
+                    pageUuid = Helpers.getKeyByValueMap(name, folder);
                 }
 
                 if (pageUuid == null) { // If this is our first time seeing this switch, let's add it in
                     pageUuid = UUID.randomUUID();
-                    Helpers.putValueMap(pageUuid, name);
+                    Helpers.putValueMap(pageUuid, name, folder);
                 }
                 updatePage(pageUuid, name, value.toUpperCase(), Color.BLACK);
             } catch (Exception e) {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.microsoft.band.tiles.TileButtonEvent;
 
+import java.io.File;
 import java.util.UUID;
 
 /**
@@ -23,8 +24,9 @@ public class TileEventReceiver extends BroadcastReceiver {
             UUID pageUuid = data.getPageID();
 
             // There's no point doing anything if we don't have an accurate switchName
-            if (Helpers.containsKeyMap(pageUuid)) {
-                String switchName = Helpers.getValueByKeyMap(pageUuid);
+            File folder = context.getExternalFilesDir(null);
+            if (Helpers.containsKeyMap(pageUuid, folder)) {
+                String switchName = Helpers.getValueByKeyMap(pageUuid, folder);
 
                 int buttonId = data.getElementID();
                 String value;
