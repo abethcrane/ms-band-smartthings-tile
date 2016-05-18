@@ -1,0 +1,244 @@
+[
+    {
+        "outputFile": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/res/merged/debug/values-v11/values-v11.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 187
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/src/main/res/values-v11/styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 182,
+                        "endLine": 8,
+                        "endColumn": 12,
+                        "endOffset": 316
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 192,
+                    "endLine": 10,
+                    "endColumn": 12,
+                    "endOffset": 606
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 611,
+                    "endLine": 16,
+                    "endColumn": 12,
+                    "endOffset": 1031
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1036,
+                    "endLine": 22,
+                    "endColumn": 12,
+                    "endOffset": 1459
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1464,
+                    "endLine": 28,
+                    "endColumn": 12,
+                    "endOffset": 1885
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1890,
+                    "endLine": 34,
+                    "endColumn": 12,
+                    "endOffset": 2312
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 35,
+                    "startColumn": 4,
+                    "startOffset": 2317,
+                    "endLine": 40,
+                    "endColumn": 12,
+                    "endOffset": 2737
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 2742,
+                    "endColumn": 88,
+                    "endOffset": 2826
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 2831,
+                    "endColumn": 100,
+                    "endOffset": 2927
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 43,
+                    "startColumn": 4,
+                    "startOffset": 2932,
+                    "endLine": 47,
+                    "endColumn": 12,
+                    "endOffset": 3335
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 48,
+                    "startColumn": 4,
+                    "startOffset": 3340,
+                    "endLine": 52,
+                    "endColumn": 12,
+                    "endOffset": 3755
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 3760,
+                    "endLine": 54,
+                    "endColumn": 12,
+                    "endOffset": 3862
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 3867,
+                    "endLine": 56,
+                    "endColumn": 12,
+                    "endOffset": 3991
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 57,
+                    "startColumn": 4,
+                    "startOffset": 3996,
+                    "endColumn": 70,
+                    "endOffset": 4062
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 4067,
+                    "endColumn": 82,
+                    "endOffset": 4145
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 59,
+                    "startColumn": 4,
+                    "startOffset": 4150,
+                    "endLine": 109,
+                    "endColumn": 12,
+                    "endOffset": 7853
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 110,
+                    "startColumn": 4,
+                    "startOffset": 7858,
+                    "endLine": 161,
+                    "endColumn": 12,
+                    "endOffset": 11701
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 162,
+                    "startColumn": 4,
+                    "startOffset": 11706,
+                    "endColumn": 90,
+                    "endOffset": 11792
+                },
+                "from": {
+                    "file": "/Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values-v11/values-v11.xml"
+                }
+            }
+        ]
+    }
+]

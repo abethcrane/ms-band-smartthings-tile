@@ -1,0 +1,107 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:2:1-48:12
+	xmlns:android
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:2:11-69
+	package
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:3:1-38
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:5:1-26
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+	android:versionCode
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:4:1-24
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:7:1-9:37
+MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.1.1] /Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:9:5-34
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:8:5-31
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.BLUETOOTH
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:11:1-64
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:11:18-61
+uses-permission#com.microsoft.band.service.access.BIND_BAND_SERVICE
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:12:1-87
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:12:18-84
+uses-permission#android.permission.INTERNET
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:13:1-63
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:13:18-60
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:14:1-15:38
+	android:maxSdkVersion
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:15:9-35
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:14:18-74
+application
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:17:1-46:15
+MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.1.1] /Users/beth/Dropbox/projects/smartthings-msband/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:20:5-37
+	android:allowBackup
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:18:5-31
+	android:icon
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:19:5-41
+	android:theme
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:21:5-36
+activity#com.beth.smartthings_msband.TileInstaller
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:22:5-30:16
+	android:label
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:25:9-41
+	android:configChanges
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:24:9-70
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:23:9-38
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:26:9-29:25
+action#android.intent.action.MAIN
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:27:13-65
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:27:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:28:13-73
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:28:23-70
+receiver#com.beth.smartthings_msband.TileEventReceiver
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:32:5-42:16
+	android:label
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:34:9-41
+	android:exported
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:36:9-32
+	android:enabled
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:35:9-31
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:33:9-69
+intent-filter#com.microsoft.band.action.ACTION_TILE_BUTTON_PRESSED+com.microsoft.band.action.ACTION_TILE_CLOSED+com.microsoft.band.action.ACTION_TILE_OPENED
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:37:9-41:25
+action#com.microsoft.band.action.ACTION_TILE_OPENED
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:38:13-82
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:38:21-80
+action#com.microsoft.band.action.ACTION_TILE_BUTTON_PRESSED
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:39:13-90
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:39:21-88
+action#com.microsoft.band.action.ACTION_TILE_CLOSED
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:40:13-82
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:40:21-80
+service#com.beth.smartthings_msband.UpdateUIIntent
+ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:43:5-45:35
+	android:exported
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:45:9-33
+	android:name
+		ADDED from /Users/beth/Dropbox/projects/smartthings-msband/app/src/main/AndroidManifest.xml:44:9-39
